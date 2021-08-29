@@ -1,2 +1,1 @@
-# extracting-data-from-mongo-
-Extracting Data from Mongo
+# Extracting Data from MongoDB
