@@ -16,8 +16,8 @@ if __name__ == "__main__":
     dsn = f"mongodb+srv://{username}:{password}@{hostname}/{dbname}?retryWrites=true&w=majority"
     client = pymongo.MongoClient(dsn)
 
-    db = client["sample_airbnb"]
-    collection = db["listingsAndReviews"]
+    db = client[dbname]
+    collection = db[collection]
     query = {}
     docs = collection.find(query, batch_size=1000)
     for each in docs:
