@@ -1,4 +1,4 @@
-# Extracting Data from MongoDB
+# Extracting Data from Various Sources
 
-* [Python](python)
-* [Node](node)
+* [Postgres](postgres)
+* [MongoDB](mongo)
