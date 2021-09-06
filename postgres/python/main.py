@@ -1,4 +1,5 @@
 import configparser
+import csv
 
 import psycopg2
 
@@ -22,6 +23,19 @@ if __name__ == "__main__":
     cursor.execute(query)
     results = cursor.fetchall()
     print(results)
+
+    with open("products.csv", "w") as f:
+        writer = csv.writer(f)
+        columns = [(
+            "UPC",
+            "DESCRIPTION",
+            "MANUFACTURER",
+            "CATEGORY",
+            "SUB_CATEGORY",
+            "PRODUCT_SIZE",
+        )]
+        writer.writerows(columns)
+        writer.writerows(results)
 
     query = "SELECT * FROM product;"
     cursor = conn.cursor()
