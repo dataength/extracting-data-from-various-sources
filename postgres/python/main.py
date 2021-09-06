@@ -18,21 +18,26 @@ if __name__ == "__main__":
         f"dbname={dbname} user={user} password={password} host={host}",
         port=port
     )
-    query = "SELECT * FROM store;"
+    query = """
+        SELECT * FROM store
+    """
     cursor = conn.cursor()
     cursor.execute(query)
     results = cursor.fetchall()
     print(results)
 
-    with open("products.csv", "w") as f:
+    with open("stores.csv", "w") as f:
         writer = csv.writer(f)
         columns = [(
-            "UPC",
-            "DESCRIPTION",
-            "MANUFACTURER",
-            "CATEGORY",
-            "SUB_CATEGORY",
-            "PRODUCT_SIZE",
+            "STORE_ID",
+            "STORE_NAME",
+            "ADDRESS_CITY_NAME",
+            "ADDRESS_STATE_PROV_CODE",
+            "MSA_CODE",
+            "SEG_VALUE_NAME",
+            "PARKING_SPACE_QTY",
+            "SALES_AREA_SIZE_NUM",
+            "AVG_WEEKLY_BASKETS",
         )]
         writer.writerows(columns)
         writer.writerows(results)
